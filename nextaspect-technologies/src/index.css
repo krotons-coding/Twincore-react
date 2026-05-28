@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-sora: "Sora", sans-serif;
+  --font-mono: "Fira Code", monospace;
+
+  /* Premium White, Blue, Purple Theme Config */
+  --color-primary-indigo: #4f46e5;      /* Corporate Indigo/Purple */
+  --color-primary-electric: #2563eb;    /* Corporate Tech Blue */
+  --color-secondary-cyan: #3b82f6;      /* Bright Blue Accent */
+  --color-secondary-purple: #7c3aed;    /* Sleek Agile Purple */
+  --color-accent-neon: #8b5cf6;         /* Light purple status accent */
+  --color-dark-bg: #f4f7fe;             /* Faint corporate ice-white */
+  --color-dark-panel: #ffffff;          /* Pristine white */
+}
+
+/* Elegant Light Theme Tokens Configuration (Consolidated light mode) */
+:root {
+  --theme-bg: #f4f7fe;
+  --theme-panel: #ffffff;
+  --theme-secondary-bg: #eef2ff;
+  --theme-text-black: #000000;        /* Solid Black as requested instead of gray-300 */
+  --theme-text-gray: #000000;         /* Rich contrasted solid black */
+  --theme-text-muted: #111827;        /* Highly visible solid black-charcoal */
+  --theme-border: rgba(79, 70, 229, 0.15);
+  --theme-glow: rgba(79, 70, 229, 0.08);
+  --theme-glass-bg: rgba(255, 255, 255, 0.95);
+  --theme-dots: rgba(79, 70, 229, 0.08);
+}
+
+@layer base {
+  body {
+    background-color: var(--theme-bg) !important;
+    color: var(--theme-text-gray) !important;
+    font-family: "Inter", sans-serif !important;
+  }
+
+  /* Main Hero Headline Style (Space Grotesk Bold, tracking tight, 800 weight) */
+  .hero-headline {
+    font-family: "Space Grotesk", sans-serif !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.03em !important;
+    line-height: 1.1 !important;
+    color: var(--theme-text-black) !important;
+  }
+
+  /* Section Title Style (Sora Bold, 700 weight, tight spacing) */
+  h1, .section-title {
+    font-family: "Sora", sans-serif !important;
+    font-weight: 700 !important;
+    color: var(--theme-text-black) !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  /* Secondary headings and card titles (Space Grotesk SemiBold, 600 weight) */
+  h2, h3, .card-title {
+    font-family: "Space Grotesk", sans-serif !important;
+    font-weight: 600 !important;
+    color: var(--theme-text-black) !important;
+    letter-spacing: -0.01em !important;
+  }
+
+  /* Body Paragraph text is Inter Regular, 400 */
+  p, .body-text {
+    font-family: "Inter", sans-serif !important;
+    font-weight: 400 !important;
+    color: var(--theme-text-muted) !important;
+    line-height: 1.7 !important;
+  }
+
+  /* Premium Buttons use Inter SemiBold, 600 weight */
+  button, .btn-text {
+    font-family: "Inter", sans-serif !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  /* Nav Links styling (Sora SemiBold, 600) */
+  .nav-link-item {
+    font-family: "Sora", sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    letter-spacing: 0.03em !important;
+  }
+}
+
+/* Reset borders to use custom dynamic variables */
+* {
+  border-color: var(--theme-border) !important;
+}
+
+/* Force Light Panel styles across common elements */
+.bg-dark-bg, 
+[class*="bg-[#0b0f19]"], 
+[class*="bg-[#111827]"], 
+[class*="bg-[#0a0d14]"], 
+[class*="bg-[#05070c]"],
+[class*="bg-[#0c0e16]"], 
+[class*="bg-[#0a0d15]"],
+[class*="bg-[#0e1220]"],
+[class*="bg-[#140b0f]"],
+[class*="bg-[#0b1410]"],
+[class*="bg-[#090c13]"],
+[class*="bg-[#060913]"],
+[class*="bg-[#090d14]"],
+[class*="bg-[#090d15]"] {
+  background-color: var(--theme-panel) !important;
+  color: var(--theme-text-gray) !important;
+}
+
+/* Ensure interactive modals maintain beautiful light shadows */
+.fixed, [class*="bg-[#060913]/90"], [class*="bg-[#060913]\\/90"] {
+  background-color: rgba(255, 255, 255, 0.98) !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+/* Glassmorphism custom classes configured dynamically for consolidated light mode */
+.glass-panel {
+  background: var(--theme-glass-bg) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid var(--theme-border) !important;
+  box-shadow: 0 10px 30px -10px var(--theme-glow) !important;
+}
+
+.glass-panel-light {
+  background: var(--theme-panel) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid var(--theme-border) !important;
+  box-shadow: 0 8px 24px var(--theme-glow) !important;
+}
+
+.glass-card {
+  background: var(--theme-panel) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  border: 1px solid var(--theme-border) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  color: var(--theme-text-gray) !important;
+}
+
+.glass-card:hover {
+  border-color: rgba(79, 70, 229, 0.4) !important;
+  box-shadow: 0 10px 30px -10px var(--theme-glow) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Custom theme overrides to elevate all light layouts */
+/* Main headlines mapping */
+h1, h2, h3, h4, h5, h6, 
+.text-white, 
+a.text-white,
+span.text-white {
+  color: var(--theme-text-black) !important;
+}
+
+/* Sub-headings / labels / auxiliary text - enforce solid black or hyper-visible dark tone as requested */
+.text-gray-400, 
+.text-gray-500, 
+.text-gray-300, 
+.text-gray-200, 
+.text-purple-300,
+.text-indigo-200,
+.text-blue-300,
+.text-red-400,
+.text-[#0ae3a2] {
+  color: var(--theme-text-black) !important; /* Forces solid black color instead of gray-300 */
+}
+
+/* Explicit fallback mapping for gray text components so they are fully high-contrast solid black */
+.text-gray-300 {
+  color: #000000 !important;
+}
+
+/* Interactive helper elements, button templates, active indicators default text remain visible */
+button.bg-gradient-to-r,
+div.bg-gradient-to-r *,
+div.bg-gradient-to-tr *,
+button[class*="bg-gradient"],
+button[class*="bg-primary"],
+button[class*="bg-secondary"],
+span[class*="bg-gradient"],
+span[class*="bg-primary"],
+span[class*="bg-secondary"],
+.bg-primary-indigo *,
+.bg-[#3b82f6] *,
+.bg-[#4338ca] *,
+.bg-[#8b5cf6] * {
+  color: #ffffff !important;
+}
+
+/* Keep form inputs legible with bright contrast */
+input, textarea, select {
+  background-color: var(--theme-panel) !important;
+  color: var(--theme-text-gray) !important;
+  border-color: var(--theme-border) !important;
+}
+
+/* Keep dropdown selected options correct */
+option {
+  background-color: var(--theme-panel) !important;
+  color: var(--theme-text-gray) !important;
+}
+
+/* Classic clean code view style for high accessibility */
+div[class*="bg-[#0c0e17]"], 
+div[class*="bg-[#0c0e16]"],
+pre {
+  background-color: #f1f5f9 !important;
+  border: 1px solid rgba(79, 70, 229, 0.2) !important;
+  color: #0f172a !important;
+}
+
+/* Shell tokens optimized */
+div[class*="bg-[#0c0e17]"] *, 
+div[class*="bg-[#0c0e16]"] *,
+pre * {
+  color: #0f172a !important;
+}
+.text-yellow-300, .text-yellow-400 {
+  color: #7c3aed !important; /* Purple token */
+}
+.text-blue-300, .text-blue-400 {
+  color: #2563eb !important; /* Blue token */
+}
+.text-purple-400, .text-purple-500 {
+  color: #4f46e5 !important; /* Violet token */
+}
+
+/* Glow effects centered on corporate blue & purple */
+.glow-effect {
+  position: relative;
+}
+
+.glow-effect::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(45deg, #2563eb, #7c3aed, #3b82f6, #4f46e5);
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.glow-effect:hover::after {
+  opacity: 0.15;
+}
+
+/* Custom Scrollbar styled dynamically with Blue & Purple */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--theme-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(37, 99, 235, 0.25);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(124, 58, 237, 0.45);
+}
+
+/* Dot Background Pattern with clean visible flavor */
+.bg-dot-pattern {
+  background-image: radial-gradient(var(--theme-dots) 1.5px, transparent 1.5px) !important;
+  background-size: 24px 24px;
+}
+
+/* Keyframes and Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 8s ease-in-out infinite;
+}
