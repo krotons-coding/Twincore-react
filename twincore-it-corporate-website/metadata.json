@@ -1,0 +1,6 @@
+{
+  "name": "Twincore IT Corporate Website",
+  "description": "Premium, highly responsive corporate website for Twincore IT, showcasing full-stack applications, enterprise ERP/Odoo solutions, services, and technologies.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
