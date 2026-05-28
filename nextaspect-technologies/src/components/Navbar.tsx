@@ -245,23 +245,23 @@ export default function Navbar({ currentPage, currentSubPage, onNavigate }: Navb
                             onNavigate("services", item.id);
                             setIsServicesHovered(false);
                           }}
-                          className={`p-3 rounded-xl transition-all duration-200 cursor-pointer text-left flex items-start space-x-3 hover:bg-slate-900 border border-transparent hover:border-slate-800 hover:shadow-lg group ${
-                            isSelected ? "bg-blue-50/5 border-blue-100/50" : ""
+                          className={`p-3 rounded-xl transition-all duration-200 cursor-pointer text-left flex items-start space-x-3 hover:bg-slate-100/80 border border-transparent hover:border-slate-200 hover:shadow-sm group ${
+                            isSelected ? "bg-slate-100/95 border-slate-200 text-slate-905 shadow-sm" : ""
                           }`}
                         >
-                          <div className="p-2 rounded-lg bg-blue-50 text-blue-600 mt-0.5 group-hover:scale-110 group-hover:bg-white/10 group-hover:text-white transition-all duration-200">
+                          <div className="p-2 rounded-lg bg-blue-50 text-blue-600 mt-0.5 group-hover:scale-110 group-hover:bg-blue-100 group-hover:text-blue-700 transition-all duration-200">
                             <Icon className="w-4 h-4" />
                           </div>
                           <div>
                             <div className="flex items-center space-x-1.5">
-                              <h4 className="text-sm font-semibold text-slate-800 tracking-tight leading-none group-hover:text-white transition-colors">{item.name}</h4>
+                              <h4 className="text-sm font-semibold text-slate-800 tracking-tight leading-none group-hover:text-black transition-colors">{item.name}</h4>
                               {item.badge && (
-                                <span className="text-[8px] font-mono font-bold bg-[#10b981]/15 text-[#047857] group-hover:bg-[#10b981]/30 group-hover:text-emerald-350 px-1.5 py-0.5 rounded-full inline-block uppercase tracking-wider scale-95 origin-left">
+                                <span className="text-[8px] font-mono font-bold bg-[#10b981]/15 text-[#047857] group-hover:bg-[#10b981]/25 group-hover:text-[#047857] px-1.5 py-0.5 rounded-full inline-block uppercase tracking-wider scale-95 origin-left">
                                   {item.badge}
                                 </span>
                               )}
                             </div>
-                            <p className="text-[11px] text-slate-500 mt-1 leading-normal group-hover:text-slate-300 transition-colors">{item.desc}</p>
+                            <p className="text-[11px] text-slate-500 mt-1 leading-normal group-hover:text-slate-800 transition-colors">{item.desc}</p>
                           </div>
                         </div>
                       );

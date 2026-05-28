@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { ArrowRight, CheckCircle2, ChevronRight, Code, Cpu, Database, Cloud, Sparkles, Star, Users, Award, Shield, Timer, HelpCircle, Activity, Layout, Layers, Terminal, BookOpen, Send, Mail, Phone, MapPin } from "lucide-react";
 import { motion } from "motion/react";
 import { servicesData, technologiesData, portfolioData, blogPostsData, testimonialsData } from "../data";
+import TechVectorShowcase from "./TechVectorShowcase";
 
 interface HomeViewProps {
   onNavigate: (page: string, subPage?: string) => void;
@@ -873,7 +874,7 @@ export default function HomeView({ onNavigate }: HomeViewProps) {
       </section>
 
       {/* ----------------- SECTION 5: WHY CHOOSE US ----------------- */}
-      <section className="bg-gradient-to-b from-[#0b0f19] to-[#080b12] py-20 border-y border-white/[0.03]" id="why-choose-us-section">
+      <section className="bg-gradient-to-b from-[#0b0f19] to-[#080b12] py-20 border-y border-white/[0.03] dark-parent" id="why-choose-us-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
@@ -891,35 +892,35 @@ export default function HomeView({ onNavigate }: HomeViewProps) {
                 return (
                   <div 
                     key={feat.title}
-                    className="p-5 rounded-xl border border-white/[0.03] bg-white/[0.01] hover:bg-white/[0.03] transition-colors text-left space-y-2"
+                    className="p-5 rounded-xl border border-white/[0.08] bg-white/[0.02] hover:bg-white/[0.04] transition-colors text-left space-y-2 font-sans"
                   >
-                    <div className="w-10 h-10 rounded-lg bg-primary-indigo/15 text-primary-electric flex items-center justify-center">
-                      <FeatIcon className="w-4.5 h-4.5" />
+                    <div className="w-10 h-10 rounded-lg bg-primary-indigo/30 text-white flex items-center justify-center">
+                      <FeatIcon className="w-4.5 h-4.5 text-white" />
                     </div>
                     <h3 className="font-display font-semibold text-sm text-white tracking-wide">{feat.title}</h3>
-                    <p className="text-[11px] text-gray-400 leading-normal">{feat.desc}</p>
+                    <p className="text-[11px] text-slate-100 font-medium leading-normal">{feat.desc}</p>
                   </div>
                 );
               })}
             </div>
 
-            {/* Right side: Scoping Callout */}
+            {/* Right side: Scoping Callout with white colors */}
             <div className="lg:col-span-5 text-left space-y-6">
-              <span className="text-xs font-mono tracking-widest text-[#a855f7] uppercase font-bold block">
+              <span className="text-xs font-mono tracking-widest text-white uppercase font-black block drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]">
                 WHY WORK WITH NEXTASPECT
               </span>
               <h2 className="text-3xl font-display font-bold tracking-tight text-white leading-tight">
                 Designed for speed, built for reliability, optimized for scale
               </h2>
-              <p className="text-sm text-gray-400 leading-relaxed">
+              <p className="text-sm text-slate-100 font-medium leading-relaxed">
                 Most agencies write loose software code that falls apart during standard database updates. NextAspect Technologies uses comprehensive type-checking frameworks and containerization architectures right from step one.
               </p>
               
-              <div className="p-4 rounded-xl bg-primary-indigo/10 border border-primary-indigo/20 space-y-3">
-                <p className="text-xs text-white leading-relaxed font-medium italic">
+              <div className="p-4 rounded-xl bg-white/[0.05] border border-white/20 space-y-3">
+                <p className="text-xs text-white leading-relaxed font-semibold italic">
                   &ldquo;NextAspect replaced five of our legacy systems with custom Odoo ERP, shaving off substantial monthly software license spend.&rdquo;
                 </p>
-                <div className="text-[10px] text-secondary-purple font-mono font-bold tracking-widest uppercase">
+                <div className="text-[10px] text-white/90 font-mono font-bold tracking-widest uppercase">
                   Arthur P, Trident Operations Lead
                 </div>
               </div>
@@ -935,10 +936,10 @@ export default function HomeView({ onNavigate }: HomeViewProps) {
           <span className="text-xs font-mono tracking-widest text-primary-electric uppercase font-bold">
             TECHNOLOGIES SECTION
           </span>
-          <h2 className="text-3xl font-display font-bold tracking-tight text-white sm:text-4xl">
+          <h2 className="text-3xl font-display font-bold tracking-tight text-slate-900 sm:text-4xl">
             Our Solid Engineering Foundations
           </h2>
-          <p className="text-sm text-gray-400 max-w-lg mx-auto">
+          <p className="text-sm text-slate-600 max-w-lg mx-auto">
             Choose the tech stacks customized to execute your precise operations. Select active category tabs to explore our configurations.
           </p>
         </div>
@@ -957,8 +958,8 @@ export default function HomeView({ onNavigate }: HomeViewProps) {
               onClick={() => setActiveTechTab(tab.id as any)}
               className={`px-4 py-2 text-xs font-semibold rounded-lg border transition-all cursor-pointer ${
                 activeTechTab === tab.id 
-                  ? "bg-white/[0.04] text-white border-primary-electric shadow-md" 
-                  : "bg-[#0b0f19] text-gray-400 border-white/5 hover:border-white/10 hover:text-white"
+                  ? "bg-primary-indigo text-white border-primary-indigo shadow-md font-bold" 
+                  : "bg-slate-50 hover:bg-slate-100 text-slate-700 border-slate-200/80 hover:text-slate-900"
               }`}
             >
               {tab.name}
@@ -967,11 +968,11 @@ export default function HomeView({ onNavigate }: HomeViewProps) {
         </div>
 
         {/* Active Tab Panel */}
-        <div className="mt-8 p-6 rounded-2xl glass-panel border border-white/[0.08] grid grid-cols-1 lg:grid-cols-12 gap-8 text-left" id="active-tech-panel">
+        <div className="mt-8 p-6 rounded-2xl bg-white border border-slate-200/80 shadow-lg grid grid-cols-1 lg:grid-cols-12 gap-8 text-left" id="active-tech-panel">
           
           {/* Active tech left stack list */}
           <div className="lg:col-span-5 space-y-4">
-            <span className="text-[10px] font-mono tracking-widest text-[#10b981] uppercase font-bold block">
+            <span className="text-[10px] font-mono tracking-widest text-primary-indigo uppercase font-bold block">
               ENGAGED ECOSYSTEM
             </span>
             <div className="space-y-3">
@@ -981,14 +982,14 @@ export default function HomeView({ onNavigate }: HomeViewProps) {
                   <div 
                     key={t.id}
                     onClick={() => onNavigate("technologies", activeTechTab)}
-                    className="p-3.5 rounded-xl bg-white/[0.01] hover:bg-[#0c101a] border border-white/[0.02] hover:border-[#3b82f6]/30 transition-all cursor-pointer group flex items-start space-x-3"
+                    className="p-3.5 rounded-xl bg-slate-50/70 border border-slate-200/60 hover:bg-slate-100 hover:border-slate-300 transition-all cursor-pointer group flex items-start space-x-3"
                   >
-                    <div className="w-9 h-9 rounded-lg bg-[#0e1220] flex items-center justify-center text-primary-electric group-hover:text-[#10b981] transition-colors font-bold font-mono text-xs">
+                    <div className="w-9 h-9 rounded-lg bg-slate-100 border border-slate-205 text-primary-indigo flex items-center justify-center font-bold font-mono text-xs group-hover:bg-primary-indigo group-hover:text-white transition-all">
                       {t.name.slice(0, 2).toUpperCase()}
                     </div>
                     <div>
-                      <h4 className="text-xs font-bold text-white group-hover:text-primary-electric transition-colors">{t.name}</h4>
-                      <p className="text-[11px] text-gray-400 mt-0.5 line-clamp-1 leading-tight">{t.overview}</p>
+                      <h4 className="text-xs font-bold text-slate-800 group-hover:text-black transition-colors">{t.name}</h4>
+                      <p className="text-[11px] text-slate-500 mt-0.5 line-clamp-1 leading-tight group-hover:text-slate-800 transition-colors">{t.overview}</p>
                     </div>
                   </div>
                 ))}
@@ -996,68 +997,15 @@ export default function HomeView({ onNavigate }: HomeViewProps) {
             
             <button 
               onClick={() => onNavigate("technologies", activeTechTab)}
-              className="mt-2 text-xs font-semibold text-primary-electric hover:underline cursor-pointer inline-flex items-center space-x-1"
+              className="mt-2 text-xs font-semibold text-primary-indigo hover:text-primary-electric hover:underline cursor-pointer inline-flex items-center space-x-1"
             >
               <span>Explore Detailed {activeTechTab} Specifications</span>
               <span>&rarr;</span>
             </button>
           </div>
 
-          {/* Active tech right mockup shell */}
-          <div className="lg:col-span-7 bg-[#080b12] rounded-xl border border-white/[0.04] p-5 font-mono text-xs text-[#06b6d4] space-y-4 overflow-hidden">
-            <div className="flex items-center justify-between pb-3 border-b border-white/[0.04]">
-              <div className="flex space-x-1.5">
-                <span className="w-2.5 h-2.5 bg-white/10 rounded-full" />
-                <span className="text-[10px] text-gray-500 uppercase">{activeTechTab}-stack.sh</span>
-              </div>
-              <span className="text-[9px] text-gray-600">STRICT PIPELINE ACTIVE</span>
-            </div>
-
-            <div className="space-y-2 text-left text-[11px] leading-relaxed">
-              <div>
-                <span className="text-gray-500">$</span> npm run audit:stack --active={activeTechTab}
-              </div>
-              <div className="text-[#10b981] font-medium">// PARSING CONFIGURATION INTEGRITY...</div>
-              
-              {activeTechTab === "frontend" && (
-                <div className="text-gray-300 space-y-1">
-                  <div>&gt; Found modules: React JS, Next.js, TypeScript, Tailwind CSS v4</div>
-                  <div>&gt; Compiling static assets at network edge routers... APPROVED </div>
-                  <div>&gt; Performance score checklist target: 100 on Lighthouse </div>
-                </div>
-              )}
-              {activeTechTab === "backend" && (
-                <div className="text-gray-300 space-y-1">
-                  <div>&gt; Found modules: Node.js, Express.js REST APIs, Python microservices</div>
-                  <div>&gt; Event loop concurrency check: ASYNCHRONOUS SECURED </div>
-                  <div>&gt; Port 3000 mapping: Standardized JSON payloads configured </div>
-                </div>
-              )}
-              {activeTechTab === "erp" && (
-                <div className="text-gray-300 space-y-1">
-                  <div>&gt; Found modules: Odoo ERP Community module customization, SharePoint SPFx </div>
-                  <div>&gt; Microsoft Graph authentication: Active token checks active </div>
-                  <div>&gt; Custom Odoo QWeb printouts and barcoding modules mapping: COMPLETE </div>
-                </div>
-              )}
-              {activeTechTab === "database" && (
-                <div className="text-gray-300 space-y-1">
-                  <div>&gt; Found modules: PostgreSQL Relational, MongoDB doc-store, MySQL</div>
-                  <div>&gt; Connection pool limits mapped dynamically: OK </div>
-                  <div>&gt; Relational ACID ledger guarantees: SECURED </div>
-                </div>
-              )}
-              {activeTechTab === "cloud" && (
-                <div className="text-gray-300 space-y-1">
-                  <div>&gt; Found modules: Docker containers orchestration, AWS virtual clusters, Azure</div>
-                  <div>&gt; CI/CD workflows: GitHub Actions automated checks on merge events </div>
-                  <div>&gt; Target: near-zero deployment friction, cold container mitigation </div>
-                </div>
-              )}
-
-              <div className="text-gray-500 pt-2">STATUS: COMPLIANT WITH ENTERPRISE GUIDELINES (100% SUCCESS)</div>
-            </div>
-          </div>
+          {/* Active tech right mockup display (Replaced console log panel with SVG vector schematic) */}
+          <TechVectorShowcase activeTechTab={activeTechTab} />
 
         </div>
       </section>

@@ -51,7 +51,7 @@
   h1, .section-title {
     font-family: "Sora", sans-serif !important;
     font-weight: 700 !important;
-    color: var(--theme-text-black) !important;
+    color: var(--theme-text-black);
     letter-spacing: -0.02em !important;
   }
 
@@ -59,7 +59,7 @@
   h2, h3, .card-title {
     font-family: "Space Grotesk", sans-serif !important;
     font-weight: 600 !important;
-    color: var(--theme-text-black) !important;
+    color: var(--theme-text-black);
     letter-spacing: -0.01em !important;
   }
 
@@ -67,7 +67,7 @@
   p, .body-text {
     font-family: "Inter", sans-serif !important;
     font-weight: 400 !important;
-    color: var(--theme-text-muted) !important;
+    color: var(--theme-text-muted);
     line-height: 1.7 !important;
   }
 
@@ -151,29 +151,96 @@
 
 /* Custom theme overrides to elevate all light layouts */
 /* Main headlines mapping */
-h1, h2, h3, h4, h5, h6, 
-.text-white, 
-a.text-white,
-span.text-white {
+h1:not(.dark-parent *):not(#why-choose-us-section *):not(#dynamic-tech-vector-container *):not([class*="text-white"]):not([class*="text-slate"]):not([class*="text-gray-100"]),
+h2:not(.dark-parent *):not(#why-choose-us-section *):not(#dynamic-tech-vector-container *):not([class*="text-white"]):not([class*="text-slate"]):not([class*="text-gray-100"]),
+h3:not(.dark-parent *):not(#why-choose-us-section *):not(#dynamic-tech-vector-container *):not([class*="text-white"]):not([class*="text-slate"]):not([class*="text-gray-100"]),
+h4:not(.dark-parent *):not(#why-choose-us-section *):not(#dynamic-tech-vector-container *):not([class*="text-white"]):not([class*="text-slate"]):not([class*="text-gray-100"]),
+h5:not(.dark-parent *):not(#why-choose-us-section *):not(#dynamic-tech-vector-container *):not([class*="text-white"]):not([class*="text-slate"]):not([class*="text-gray-100"]),
+h6:not(.dark-parent *):not(#why-choose-us-section *):not(#dynamic-tech-vector-container *):not([class*="text-white"]):not([class*="text-slate"]):not([class*="text-gray-100"]),
+.text-white:not(.dark-parent *):not(#why-choose-us-section *):not(#dynamic-tech-vector-container *):not(.is-selected-item *):not(.group-hover *), 
+a.text-white:not(.dark-parent *):not(#why-choose-us-section *):not(#dynamic-tech-vector-container *),
+span.text-white:not(.dark-parent *):not(#why-choose-us-section *):not(#dynamic-tech-vector-container *):not(.is-selected-item *):not(.group-hover *) {
   color: var(--theme-text-black) !important;
 }
 
 /* Sub-headings / labels / auxiliary text - enforce solid black or hyper-visible dark tone as requested */
-.text-gray-400, 
-.text-gray-500, 
-.text-gray-300, 
-.text-gray-200, 
-.text-purple-300,
-.text-indigo-200,
-.text-blue-300,
-.text-red-400,
+.text-gray-400:not(.dark-parent *):not(#why-choose-us-section *):not(#dynamic-tech-vector-container *):not(#active-tech-panel *):not([class*="hover:bg"]):not(.group:hover *), 
+.text-gray-500:not(.dark-parent *):not(#why-choose-us-section *):not(#dynamic-tech-vector-container *):not(#active-tech-panel *), 
+.text-gray-300:not(.dark-parent *):not(#why-choose-us-section *):not(#dynamic-tech-vector-container *):not(#active-tech-panel *):not(#interactive-screengrab-mockup *), 
+.text-gray-200:not(.dark-parent *):not(#why-choose-us-section *):not(#dynamic-tech-vector-container *):not(#active-tech-panel *), 
+.text-purple-300:not(.dark-parent *),
+.text-indigo-200:not(.dark-parent *),
+.text-blue-300:not(.dark-parent *),
+.text-red-400:not(.dark-parent *),
 .text-[#0ae3a2] {
   color: var(--theme-text-black) !important; /* Forces solid black color instead of gray-300 */
 }
 
 /* Explicit fallback mapping for gray text components so they are fully high-contrast solid black */
-.text-gray-300 {
+.text-gray-300:not(.dark-parent *):not(#why-choose-us-section *):not(#dynamic-tech-vector-container *):not(#active-tech-panel *):not(#interactive-screengrab-mockup *) {
   color: #000000 !important;
+}
+
+/* ==========================================
+   SOLID DARK PROTECTION LAYER
+   ========================================== */
+.dark-parent,
+.dark-parent *,
+#why-choose-us-section,
+#why-choose-us-section *,
+#dynamic-tech-vector-container,
+#dynamic-tech-vector-container *,
+#interactive-screengrab-mockup,
+#interactive-screengrab-mockup * {
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+/* Headings and tags inside why-choose-us-section and dynamic-tech-vector-container to remain white */
+#why-choose-us-section h1,
+#why-choose-us-section h2,
+#why-choose-us-section h3,
+#why-choose-us-section h4,
+#why-choose-us-section span,
+#why-choose-us-section div,
+#why-choose-us-section p,
+#why-choose-us-section font,
+#dynamic-tech-vector-container h1,
+#dynamic-tech-vector-container h2,
+#dynamic-tech-vector-container h3,
+#dynamic-tech-vector-container h4,
+#dynamic-tech-vector-container span,
+#dynamic-tech-vector-container div,
+#dynamic-tech-vector-container p,
+#dynamic-tech-vector-container font,
+#dynamic-tech-vector-container text,
+#interactive-screengrab-mockup font,
+#interactive-screengrab-mockup text,
+#interactive-screengrab-mockup span,
+#interactive-screengrab-mockup div {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+/* Specific slate overrides inside dark templates */
+#why-choose-us-section p,
+#why-choose-us-section .text-slate-100,
+#why-choose-us-section .text-gray-400,
+#dynamic-tech-vector-container .text-slate-400,
+#dynamic-tech-vector-container .text-slate-400 span {
+  color: #e2e8f0 !important;
+}
+
+/* Icons styling white inside Choose Us icons */
+#why-choose-us-section .w-10 svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+.text-real-white {
+  color: #ffffff !important;
+}
+.text-real-slate-350 {
+  color: #cbd5e1 !important;
 }
 
 /* Interactive helper elements, button templates, active indicators default text remain visible */

@@ -99,8 +99,8 @@ export default function TechnologiesView({ initialCategory, onNavigate }: Techno
                   onClick={() => setSelectedTech(t)}
                   className={`w-full text-left p-3 rounded-xl border text-xs font-semibold tracking-wide transition-all cursor-pointer block ${
                     isSelected 
-                      ? "bg-white/[0.04] text-white border-primary-electric/40 shadow-sm" 
-                      : "bg-[#0b0f19] text-gray-400 border-white/5 hover:border-white/10 hover:text-white"
+                      ? "bg-primary-indigo text-white border-primary-indigo shadow-md font-bold" 
+                      : "bg-slate-50 hover:bg-slate-100 text-slate-700 border-slate-200/80 hover:text-slate-900"
                   }`}
                 >
                   {t.name}
@@ -117,7 +117,7 @@ export default function TechnologiesView({ initialCategory, onNavigate }: Techno
             <div className="absolute top-0 right-0 w-48 h-48 rounded-full bg-primary-indigo/5 blur-[100px] pointer-events-none" />
 
             <div className="flex items-center space-x-4">
-              <div className="w-12 h-12 rounded-xl bg-[#0b0f19] border border-white/10 text-primary-electric flex items-center justify-center font-mono font-extrabold text-sm">
+              <div className="w-12 h-12 rounded-xl bg-slate-100 border border-slate-200 text-primary-indigo flex items-center justify-center font-mono font-extrabold text-sm">
                 {selectedTech.name.slice(0, 2).toUpperCase()}
               </div>
               <div>
@@ -197,21 +197,58 @@ export default function TechnologiesView({ initialCategory, onNavigate }: Techno
             </div>
           </div>
 
-          {/* Technical terminal showcase simulation */}
-          <div className="bg-[#0c0e16] rounded-xl border border-white/[0.04] p-5 font-mono text-xs text-[#06b6d4] text-left space-y-3">
-            <div className="flex items-center justify-between pb-3 border-b border-white/[0.04]">
-              <span className="text-[10px] text-gray-500">terminal@nextaspect-sandbox:~</span>
-              <span className="text-[9px] text-[#10b981] font-bold">STRICT SYSTEM STATUS</span>
-            </div>
+          {/* Custom vector schematic representing security & compilation verification flow */}
+          <div className="bg-[#05070c]/90 rounded-2xl border border-white/[0.08] p-5 text-left flex flex-col justify-between min-h-[220px] relative overflow-hidden group shadow-xl">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full bg-emerald-500/10 blur-[50px] pointer-events-none" />
             
-            <div className="space-y-1.5 text-[11px] leading-relaxed">
-              <div><span className="text-gray-500">$</span> cat package.spec.json | grep "{selectedTech.name}"</div>
-              <div className="text-gray-400">
-                &gt; Loaded library version 2026.5.28 <br />
-                &gt; Mapped types safe parameters verification: SUCCESS <br />
-                &gt; Security certificates audit: ISO-COMPLIANT
+            <div className="flex items-center justify-between pb-3 border-b border-white/[0.06] relative z-10">
+              <div className="flex items-center space-x-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
+                <span className="text-[10px] font-mono tracking-wider font-extrabold text-slate-400 uppercase">
+                  {selectedTech.name} Live Integration Audit
+                </span>
               </div>
-              <div className="text-purple-400">// Unified stack verification checks complete with 0 alerts.</div>
+              <span className="text-[8px] font-mono tracking-widest text-[#10b981] font-black uppercase bg-[#10b981]/15 px-2 py-0.5 rounded border border-[#10b981]/20">
+                VERIFIED SAFE
+              </span>
+            </div>
+
+            <div className="flex-grow flex items-center justify-center py-4 relative z-10">
+              <svg viewBox="0 0 450 100" fill="none" className="w-full h-auto max-w-sm">
+                {/* Visual Connector Path 1 */}
+                <g>
+                  <path d="M 60,50 L 220,50" stroke="#10b981" strokeWidth="1.5" strokeDasharray="5 5">
+                    <animate attributeName="stroke-dashoffset" values="40;0" dur="2s" repeatCount="indefinite" />
+                  </path>
+                </g>
+                
+                {/* Visual Connector Path 2 */}
+                <g>
+                  <path d="M 220,50 L 390,50" stroke="#a855f7" strokeWidth="1.5" strokeDasharray="5 5">
+                    <animate attributeName="stroke-dashoffset" values="40;0" dur="2s" repeatCount="indefinite" />
+                  </path>
+                </g>
+
+                {/* Source module Node */}
+                <circle cx="60" cy="50" r="16" fill="#061e16" stroke="#10b981" strokeWidth="1.5" />
+                <circle cx="60" cy="50" r="8" fill="#10b981" fillOpacity="0.3" />
+                <text x="60" y="82" fill="#8892b0" fontSize="8" textAnchor="middle" fontWeight="black" fontFamily="monospace">PKG BOUNDS</text>
+
+                {/* Security Gate Guard Node */}
+                <circle cx="220" cy="50" r="18" fill="#111827" stroke="#3b82f6" strokeWidth="2" />
+                <path d="M 215,48 L 225,48 M 220,43 L 220,57" stroke="#3b82f6" strokeWidth="1.5" />
+                <text x="220" y="82" fill="#8892b0" fontSize="8" textAnchor="middle" fontWeight="black" fontFamily="monospace">PORT SCAN</text>
+
+                {/* Target verified vault Node */}
+                <circle cx="390" cy="50" r="16" fill="#1e1828" stroke="#a855f7" strokeWidth="1.5" />
+                <circle cx="390" cy="50" r="6" fill="#a855f7" />
+                <text x="390" y="82" fill="#8892b0" fontSize="8" textAnchor="middle" fontWeight="black" fontFamily="monospace">ISO CERTIFICATE</text>
+              </svg>
+            </div>
+
+            <div className="pt-2.5 border-t border-white/[0.06] flex items-center justify-between relative z-10 text-[9px] text-slate-500 font-mono">
+              <span>MAPPED ENVIRONMENT: COMPLIANT</span>
+              <span>VERIFIED STACK SHIELD v4.1</span>
             </div>
           </div>
 
